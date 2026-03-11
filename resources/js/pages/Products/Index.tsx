@@ -2,10 +2,8 @@ import ProductController from '@/actions/App/Http/Controllers/ProductController'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout';
-import products from '@/routes/products';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { usePage } from '@inertiajs/react'
 import { Megaphone } from 'lucide-react';
 import {
     Table,
@@ -38,12 +36,12 @@ interface PageProps {
         message?: string;
     },
     products: Product[]
+
 }
 
 
 
-export default function Index() {
-    const { products, flash } = usePage().props as PageProps;
+export default function Index({flash, products}: PageProps)  {
 
     const {processing, delete:destroy} = useForm();
 
